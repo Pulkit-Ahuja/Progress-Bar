@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>Progress Bar</title>
+<style type="text/css">
+	body{
+		padding: 5px;
+		font-size: 1.2rem;
+	}
+	.bar{
+		display: inline-block;
+		width:70px;
+		height:6px;
+		border:1px solid black;
+		transition: background-color 0.5s ease-out;
+	}
+	#p4{
+		border-radius: 0px 5px 5px 0px;
+	}
+	#p1{
+		border-radius: 5px 0px 0px 5px;
+	}
+	img{
+		width:30px;
+		vertical-align: middle;
+		margin:0px -5px;
+
+	}
+	#form{
+		margin:50px auto;
+		width:50%;
+		text-align: center;
+		border:2px solid black;
+		box-shadow: 5px 10px grey;
+		border-radius: 10px;
+		padding: 20px 0px;
+	}
+	button{
+		margin: 25px 20px;
+		padding: 5px 20px;
+		border-radius: 10px;
+		border:none;
+		background: linear-gradient(to bottom right, #91cbeb, #007fc4);
+		color: white;
+	}
+	#head{
+		margin:-30px;
+		padding: 10px;
+		text-align: center;
+		background:#91cbeb;
+		border-bottom: 2px solid blue;
+	}
+	h1{
+		font-variant: small-caps;
+		font-family: 'serif';
+		font-style: italic;
+	}
+	sub{
+		font-size:0.6em;
+	}
+</style>
+<script type="text/javascript">
+	var value = 0;
+	function increase()
+	{
+		if (value == 0)
+		{
+			document.getElementById('p1').style.backgroundColor = "lightgreen";
+			document.getElementById('place1').innerHTML = "<img src='images/check.png'/>";
+			value = 25;
+		}
+		else if (value == 25)
+		{
+			document.getElementById('p2').style.backgroundColor = "lightgreen";
+			document.getElementById('place2').innerHTML = "<img src='images/check.png'/>";
+			value = 50;
+		}
+		else if (value == 50)
+		{
+			document.getElementById('p3').style.backgroundColor = "lightgreen";
+			document.getElementById('place3').innerHTML = "<img src='images/check.png'/>";
+			value = 75;
+		}
+		else
+		{
+			document.getElementById('p4').style.backgroundColor = "lightgreen";
+			document.getElementById('place4').innerHTML = "<img src='images/check.png'/>";
+			document.getElementById('finish').innerHTML = "You completed the Tutorials!!";
+			value = 100;
+		}
+	}
+	function decrease()
+	{
+		if (value == 100)
+		{
+			document.getElementById('p4').style.backgroundColor = "white";
+			document.getElementById('place4').innerHTML = "";
+			document.getElementById('finish').innerHTML = "";
+			value = 75;
+		}
+		else if (value == 75)
+		{
+			document.getElementById('p3').style.backgroundColor = "white";
+			document.getElementById('place3').innerHTML = "<img src='images/hollow.png'/>";
+			value = 50;
+		}
+		else if (value == 50)
+		{
+			document.getElementById('p2').style.backgroundColor = "white";
+			document.getElementById('place2').innerHTML = "<img src='images/hollow.png'/>";
+			value = 25;
+		}
+		else
+		{
+			document.getElementById('p1').style.backgroundColor = "white";
+			document.getElementById('place1').innerHTML = "<img src='images/hollow.png'/>";
+			value = 0;
+		}
+	}
+</script>
+</head>
+<body>
+	<div id="head">
+		<h1>Progress Bar Tutorials<sub>By Pulkit Ahuja</sub></h1>
+			Click "<strong>Step Up</strong>" for raising the bar
+			<br/>
+			Click "<strong>Step Down</strong>" for declining the bar
+		<br/>
+	</div>
+	<img src="https://patrickguidebarcelona.com/wp-content/uploads/2020/04/Bitmoji-Pointing.jpg" style="position:fixed; top:200px;width:300px;"/>
+	<div id="form">
+		<span class="bar" id = "p1"></span>
+		<span id="place1"><img src="images/hollow.png"></img></span>
+		<span class="bar" id = "p2"></span>
+		<span id="place2"><img src="images/hollow.png"></img></span>
+		<span class="bar" id = "p3"></span>
+		<span id="place3"><img src="images/hollow.png"></img></span>
+		<span class="bar" id = "p4"></span>
+		<span id="place4"></span>
+		<br/>
+		<br/>
+		<span id="finish" style="color: green"></span>
+		<br/>
+		<button onclick="increase();">Step Up +</button>
+		<button onclick="decrease();">Step Down -</button>
+	</div>
+</body>
+</html>
